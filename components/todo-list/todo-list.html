@@ -1,7 +1,7 @@
-<h1>To Do List</h1>
-<ul>
-    <li>Item 1</li>
-    <li>Item 2</li>
-    <li>Item 3</li>
-    <li>Item 4</li>
-</ul>
+
+<div class="container">
+    <h1>To Do List</h1>
+    <div class="col-xs-12 col-lg-6 col-md-9">
+       <list-details ng-repeat="item in $ctrl.list" list-item="item"></list-details>
+    </div>
+</div>
