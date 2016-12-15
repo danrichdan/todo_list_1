@@ -25,7 +25,24 @@ function todoListController(){
              status: 'open',
              details: 'Use caution'
          }
-      ]
+      ];
+    ctrl.$onInit = function() {
+        var syncObj = fbService.getData();
+        syncObj.$bindTo($scope,"data");
+    };
+    ctrl.add = function(listItem){
+        if(listItem){
+            ctrl.list.push(listItem);
+        }
+    };
+    ctrl.delete = function(listItem){
+        if(listItem){
+            var index = ctrl.list.indexOf(listItem);
+            if( index !== -1 ){
+                ctrl.list.splice(index, 1);
+            }
+        }
+    };
 }
 angular.module('tdlApp').component('todoList',{
     templateUrl: './components/todo-list/todo-list.html',
